@@ -93,7 +93,11 @@
         Content subsection B.b
 
 Copyright \copyright\ 2013 Jim Holmstr\"{o}m
-\url{http://www.cheatsheet.jim.pm?subject=\lowercase{\Subject}}
+
+\newcommand\lcURL[1]{%
+  \edef\tmp{\lowercase{\noexpand\url{http://www.cheatsheet.jim.pm?subject=#1}}}%
+  \tmp}
+\lcURL{\Subject}
 
 \end{multicols}
 \end{document}
