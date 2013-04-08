@@ -1,7 +1,7 @@
 cheatsheet
 ==========
 
-Cheat sheet on different subjects
+Cheat sheet on various subjects
 
 
 license
