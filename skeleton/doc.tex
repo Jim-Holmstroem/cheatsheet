@@ -4,6 +4,7 @@
 \usepackage{ifthen}
 \usepackage{hyperref}
 \usepackage[landscape]{geometry}
+\usepackage{xstring}
 
 % This sets page margins to .5 inch if using letter paper, and to 1cm
 % if using A4 paper. (This probably isn't strictly necessary.)
@@ -93,7 +94,21 @@
         Content subsection B.b
 
 Copyright \copyright\ 2013 Jim Holmstr\"{o}m
-\url{http://www.cheatsheet.jim.pm?subject=\lowercase{\Subject}}
+
+%http://tex.stackexchange.com/questions/107541/lowercase-inside-url/
+\newcommand\lcURL[1]{%
+  \begingroup
+  \StrSubstitute{#1}{ }{}[\tmp]%
+    \edef\tmp{%
+      \lowercase{%
+        \endgroup
+        \noexpand\url{http://www.cheatsheet.jim.pm?subject=\tmp}%
+      }%
+    }%
+  \tmp
+}
+
+\lcURL{\Subject}
 
 \end{multicols}
 \end{document}
