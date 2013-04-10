@@ -5,6 +5,7 @@
 \usepackage{hyperref}
 \usepackage[landscape]{geometry}
 \usepackage{xstring}
+\usepackage{amsmath}
 
 % This sets page margins to .5 inch if using letter paper, and to 1cm
 % if using A4 paper. (This probably isn't strictly necessary.)
@@ -57,6 +58,7 @@
 
 \newcommand{\ts}{\textsuperscript}
 \newcommand{\refbook}[1]{\ts{\tiny{#1}}}
+\newcommand{\dd}[2]{\frac{\partial {#1}}{\partial {#2}}}
 
 % -----------------------------------------------------------------------
 
@@ -96,7 +98,70 @@
     \subsection{Heat Engine 2\ts{nd} Law\refbook{13}}
     \subsection{Entropy\refbook{14}}
     \subsection{Thermodynamic Potentials\refbook{16}}
+        \subsubsection{Internal energy, U}
+            \begin{equation}
+                \label{eq:internalEnergy}
+                dU 
+                = TdS - pdV
+            \end{equation}
+        \subsubsection{Enthalpy, H}
+            \begin{equation}
+                H 
+                \equiv U + PV 
+                = \left\{\eqref{eq:dHDerive}\right\}
+                = H(S,p)
+            \end{equation}
+            \begin{equation}
+                \label{eq:dHDerive}
+                dH 
+                = \left\{\eqref{eq:internalEnergy}\right\}
+                = TdS - pdV + pdV + VdP 
+                = TdS + Vdp
+            \end{equation}
+            \begin{equation}
+                \Delta H
+                = \begin{cases}
+                    exothermic & \Delta H < 0 \\
+                    endothermic& \Delta H > 0 \\
+                \end{cases}
+            \end{equation}
+        \subsubsection{Helmholtz function, F}
+            \begin{equation}
+                F 
+                \equiv U - TS
+                = \left\{\eqref{eq:dFDerive}\right\}
+                = F(T,V)
+            \end{equation}
+            \begin{equation}
+                \label{eq:dFDerive}
+                dF
+                = \left\{\eqref{eq:internalEnergy}\right\}
+                = TdS - pdV - TdS - SdT
+                = -SdT - pdV
+            \end{equation}
+        \subsubsection{Gibbs function, G}
+            \begin{equation}
+                G 
+                \equiv H - TS
+                = \left\{\eqref{eq:dGDerive}\right\}
+                = G(T,p)
+            \end{equation}
+            \begin{equation}
+                \label{eq:dGDerive}
+                dG
+                = \left\{\eqref{eq:dHDerive}\right\}
+                = TdS + VdP - TdS - SdT
+                = -SdT + VdP
+            \end{equation}
+
     \subsection{Maxwell Relations\refbook{16}}
+        Derivation of generalized maxwell
+        \begin{equation}
+            df\left(x,y\right) 
+            = \left(\dd{f\left(x,y\right)}{x}\right)_y dx 
+            + \left(\dd{f\left(x,y\right)}{y}\right)_x dx 
+        \end{equation}
+
     \subsection{Work Generalization\refbook{17}}
     \subsection{3\ts{rd} Law\refbook{18}}
 \section{Classical Statistical Mechanics}
