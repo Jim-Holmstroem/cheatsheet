@@ -58,7 +58,8 @@
 
 \newcommand{\ts}{\textsuperscript}
 \newcommand{\refbook}[1]{\ts{\tiny{#1}}}
-\newcommand{\dd}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\dd}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\ddc}[3]{\left(\dd{#1}{#2}\right)_{#3}}
 
 % -----------------------------------------------------------------------
 
@@ -177,6 +178,22 @@
     \subsection{Phonons\refbook{23,34}}
     \subsection{Real Gases\refbook{26.1,26.4}}
     \subsection{Phase Transisions\refbook{28.1-3}}
+
+\section{Toolbox}
+    
+    \begin{equation}
+        \ddc{x}{y}{z}\ddc{y}{z}{x}\ddc{z}{x}{y} = -1
+    \end{equation}
+    \begin{equation}
+        \ddc{x}{y}{z}\ddc{y}{z}{x} = -\ddc{x}{z}{y} 
+    \end{equation}
+
+    $dS$ is an exact integral and thus only the start and end state needs
+    to be calculated.
+
+    \begin{equation}
+        \ddc{u(x,y),v(x,y)}{x}{y} = \ddc{f(u,v)}{u}{v}\ddc{u(x,y)}{x}{y}+\ddc{f(u,v)}{v}{u}\ddc{v(x,y)}{x}{y}
+    \end{equation}
 
 Copyright \copyright\ 2013 Jim Holmstr\"{o}m
 
